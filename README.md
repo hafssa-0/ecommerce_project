@@ -69,54 +69,34 @@ Présentation des articles disponibles avec images.
 
 <img width="1890" height="380" alt="image" src="https://github.com/user-attachments/assets/0e97a5b9-dde7-450c-8fda-2637634f3b61" />
 
-4. Sécurité
+7. capture de la page profil après connexion
+
+  <img width="1894" height="462" alt="image" src="https://github.com/user-attachments/assets/a506c4db-7d1f-41e8-9a95-9ebc46b0b933" />
+
+8. capture montrant la déconnexion
 
 Déconnexion : Bouton permettant de fermer la session de manière sécurisée.
-[Image montrant la déconnexion]
+<img width="1899" height="529" alt="image" src="https://github.com/user-attachments/assets/ac9638f6-74d0-416c-9028-83e2c2b9fbcb" />
 
-5. Administration
+9. capture de l’interface d’administration Django
 
-Interface Django pour la gestion totale du contenu (Produits, Catégories, Groupes).
-[Image de l'interface d'administration Django]
+Interface Django pour la gestion totale du contenu (produits, catégories).
+<img width="1882" height="539" alt="image" src="https://github.com/user-attachments/assets/e6de5ffc-eb28-4153-935f-de1ba7e5668e" />
 
-🔒 Concepts de Sécurité implémentés
 
-Le décorateur @login_required
+10. @login_required
 
-Dans AuraLand, la sécurité des pages sensibles (comme le Profil ou le Panier) est assurée par ce décorateur.
+Dans AuraLand, la sécurité des pages sensibles (comme le profil ou le panier) est assurée par @login_required.
 
-Son rôle : Il intercepte la requête pour vérifier si l'utilisateur est authentifié avant d'autoriser l'accès à la vue.
+Son rôle : Il intercepte la requête pour vérifier si l'utilisateur est authentifié avant d'autoriser l'accès à la vue. Si l'utilisateur n'est pas connecté, il est automatiquement redirigé vers la page de connexion. Cela garantit la protection des données privées.
 
-Fonctionnement : Si l'utilisateur n'est pas connecté, il est automatiquement redirigé vers la page de connexion. Cela garantit la protection des données privées.
+11. {% csrf_token %}
 
-Le tag {% csrf_token %}
+Il est présent dans tous nos formulaires (inscription, connexion, ajout au panier), il est une mesure de sécurité obligatoire. Il protège l'application contre les attaques CSRF (Cross-Site Request Forgery). Django génère un jeton unique et secret pour chaque session, prouvant que la requête provient bien de notre application et non d'un site tiers malveillant.
 
-Présent dans tous nos formulaires (inscription, connexion, ajout au panier), ce tag est une mesure de sécurité obligatoire.
+12. une démonstration que la page profil est inaccessible sans connexion:
+<img width="1888" height="425" alt="image" src="https://github.com/user-attachments/assets/3b973e16-d3fd-4468-a7f1-aa1fe9b6b4d7" />
 
-Son rôle : Il protège l'application contre les attaques CSRF (Cross-Site Request Forgery).
-
-Fonctionnement : Django génère un jeton unique et secret pour chaque session, prouvant que la requête provient bien de notre application et non d'un site tiers malveillant.
-
-🚀 Installation et Configuration
-
-Prérequis
-
-Python 3.x
-
-Docker & Docker Compose
-
-Environnement virtuel (myenv) activé.
-
-Lancement rapide
-
-Installation des dépendances :
-pip install pillow mysqlclient
-
-Démarrage de la base de données (Docker) :
-docker-compose up -d
-
-Synchronisation de la base :
-python manage.py migrate
 
 Lancement du serveur :
 python manage.py runserver
