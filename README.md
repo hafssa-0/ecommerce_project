@@ -1,4 +1,4 @@
-AuraLand - Plateforme E-Commerce
+AuraLand: une plateforme de e-commerce
 
 AuraLand est une application de commerce électronique moderne développée avec le framework Django. Ce projet permet de gérer un catalogue complet de produits organisés par catégories, avec une gestion précise des stocks, des images et un système d'authentification sécurisé.
 
@@ -44,10 +44,9 @@ Interface utilisateur utilisant le langage de template Django :
 
 Héritage : Utilisation de layout.html pour garantir une barre de navigation (Navbar) et un pied de page (Footer) cohérents sur tout le site.
 
-Lancement du serveur :
-python manage.py runserver
+Lancement du serveur par: python manage.py runserver
 
-Accéder à l'application : http://127.0.0.1:8000/
+Accéder à l'application: http://127.0.0.1:8000/
 
 Aperçu du Projet
 
@@ -65,35 +64,35 @@ Présentation des articles disponibles avec images.
 <img width="1920" height="889" alt="image" src="https://github.com/user-attachments/assets/12dece24-c761-4015-a5d2-da384f6c23f8" />
 4. capture du détail d’un produit : 
 <img width="1912" height="675" alt="image" src="https://github.com/user-attachments/assets/f8680e3d-0a2c-4cbd-9be3-a7a1526278ce" />
-5. capture de la page d’inscription
+5. capture de la page d’inscription:
 <img width="1897" height="568" alt="image" src="https://github.com/user-attachments/assets/c44fdd9d-1e0c-4d70-95c2-e9b625b8a6f4" />
 
-6. capture de la page de connexion 
+6. capture de la page de connexion :
 
 
 
 <img width="1890" height="380" alt="image" src="https://github.com/user-attachments/assets/0e97a5b9-dde7-450c-8fda-2637634f3b61" />
 
-7. capture de la page profil après connexion
+7. capture de la page profil après connexion:
 
   <img width="1894" height="462" alt="image" src="https://github.com/user-attachments/assets/a506c4db-7d1f-41e8-9a95-9ebc46b0b933" />
 
-8. capture montrant la déconnexion
+8. capture montrant la déconnexion:
 
 Déconnexion : Bouton permettant de fermer la session de manière sécurisée.
 <img width="1899" height="529" alt="image" src="https://github.com/user-attachments/assets/ac9638f6-74d0-416c-9028-83e2c2b9fbcb" />
 
-9. capture de l’interface d’administration Django
+9. capture de l’interface d’administration Django:
 
 Interface Django pour la gestion totale du contenu (produits, catégories).
 <img width="1882" height="539" alt="image" src="https://github.com/user-attachments/assets/e6de5ffc-eb28-4153-935f-de1ba7e5668e" />
 
 
-10. @login_required
+10. @login_required:
 
 Dans AuraLand, la sécurité des pages sensibles (comme le profil ou le panier) est assurée par @login_required qui est un décorateur. Il intercepte la requête pour vérifier si l'utilisateur est authentifié avant d'autoriser l'accès à la vue. Si l'utilisateur n'est pas connecté, il est automatiquement redirigé vers la page de connexion. Cela garantit la protection des données privées.
 
-11. {% csrf_token %}
+11. {% csrf_token %}:
 
 C'est un tag. Il est présent dans tous nos formulaires (inscription, connexion, ajout au panier), il est une mesure de sécurité obligatoire. Il protège l'application contre les attaques CSRF (Cross-Site Request Forgery). Django génère un jeton unique et secret pour chaque session, prouvant que la requête provient bien de notre application et non d'un site tiers malveillant.
 
