@@ -48,27 +48,30 @@ Aperçu du Projet
 
 Voici les différentes interfaces et étapes de réalisation :
 
-1. Architecture du Projet
+2. Architecture du Projet
 
 L'application est divisée en deux modules principaux : products (catalogue) et accounts (comptes utilisateurs).
 <img width="1915" height="997" alt="image" src="https://github.com/user-attachments/assets/06f147de-944a-46d8-b1bc-e86afefad138" />
 
 
-2. Boutique AuraLand
+3. capture de la liste des produits :
 
-Liste des produits : Présentation des articles disponibles avec images.
+Présentation des articles disponibles avec images.
 
 Détails du produit : Fiche technique affichant le prix, la description et le stock.
-[Image de la liste des produits]
+<img width="1920" height="889" alt="image" src="https://github.com/user-attachments/assets/12dece24-c761-4015-a5d2-da384f6c23f8" />
+4. capture du détail d’un produit : 
 [Image de détails d'un produit]
 
-3. Espace Utilisateur
+5. capture de la page d’inscription
+<img width="1912" height="675" alt="image" src="https://github.com/user-attachments/assets/f8680e3d-0a2c-4cbd-9be3-a7a1526278ce" />
 
-Inscription & Connexion : Formulaires de sécurité pour accéder à l'espace client.
+6. capture de la page de connexion
 
-Profil après connexion : Page dédiée affichant les informations du compte (Nom d'utilisateur, Email, Statut).
-[Image de la page d'inscription]
-[Image de la page de connexion]
+<img width="1897" height="568" alt="image" src="https://github.com/user-attachments/assets/c44fdd9d-1e0c-4d70-95c2-e9b625b8a6f4" />
+
+<img width="1890" height="380" alt="image" src="https://github.com/user-attachments/assets/0e97a5b9-dde7-450c-8fda-2637634f3b61" />
+
 [Image de la page de profil après connexion]
 
 4. Sécurité
