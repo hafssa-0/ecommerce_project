@@ -44,6 +44,11 @@ Interface utilisateur utilisant le langage de template Django :
 
 Héritage : Utilisation de layout.html pour garantir une barre de navigation (Navbar) et un pied de page (Footer) cohérents sur tout le site.
 
+Lancement du serveur :
+python manage.py runserver
+
+Accéder à l'application : http://127.0.0.1:8000/
+
 Aperçu du Projet
 
 Voici les différentes interfaces et étapes de réalisation :
@@ -86,19 +91,11 @@ Interface Django pour la gestion totale du contenu (produits, catégories).
 
 10. @login_required
 
-Dans AuraLand, la sécurité des pages sensibles (comme le profil ou le panier) est assurée par @login_required.
-
-Son rôle : Il intercepte la requête pour vérifier si l'utilisateur est authentifié avant d'autoriser l'accès à la vue. Si l'utilisateur n'est pas connecté, il est automatiquement redirigé vers la page de connexion. Cela garantit la protection des données privées.
+Dans AuraLand, la sécurité des pages sensibles (comme le profil ou le panier) est assurée par @login_required qui est un décorateur. Il intercepte la requête pour vérifier si l'utilisateur est authentifié avant d'autoriser l'accès à la vue. Si l'utilisateur n'est pas connecté, il est automatiquement redirigé vers la page de connexion. Cela garantit la protection des données privées.
 
 11. {% csrf_token %}
 
-Il est présent dans tous nos formulaires (inscription, connexion, ajout au panier), il est une mesure de sécurité obligatoire. Il protège l'application contre les attaques CSRF (Cross-Site Request Forgery). Django génère un jeton unique et secret pour chaque session, prouvant que la requête provient bien de notre application et non d'un site tiers malveillant.
+C'est un tag. Il est présent dans tous nos formulaires (inscription, connexion, ajout au panier), il est une mesure de sécurité obligatoire. Il protège l'application contre les attaques CSRF (Cross-Site Request Forgery). Django génère un jeton unique et secret pour chaque session, prouvant que la requête provient bien de notre application et non d'un site tiers malveillant.
 
 12. une démonstration que la page profil est inaccessible sans connexion:
 <img width="1888" height="425" alt="image" src="https://github.com/user-attachments/assets/3b973e16-d3fd-4468-a7f1-aa1fe9b6b4d7" />
-
-
-Lancement du serveur :
-python manage.py runserver
-
-Accéder à l'application : http://127.0.0.1:8000/
