@@ -1,21 +1,62 @@
-<html>
-   <h1> Nos produits </h1>
-   <a href="{% url 'category_list' %}">Voir les catégories</a>
-   <ul>
-       {% for product in products %}
-           <li>
-               <h3><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
-               
-               <p>Prix : {{ product.price }} €</p>
-               <p> Catégorie : <a href="{% url 'category_detail' product.category.id %}">{{ product.category.name }}</a></p>
-               {% if product.image %}
-                   <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
-               {% endif %}
-           </li>
-         
-         {% empty %}
-           <li>Aucun produit disponible.</li>
-       {% endfor %}
+{% extends "products/layout.html" %}
 
-   </ul>
-</html>
+{% block title %}Produits - AuraLand{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div>
+            <h1>Nos Produits</h1>
+            <p class="product-meta mb-0">Explorez les produits disponibles chez AuraLand.</p>
+        </div>
+        <a href="{% url 'category_list' %}" class="btn btn-outline-primary">
+            Voir les categories
+        </a>
+    </div>
+
+    <ul class="product-list">
+        {% for product in products %}
+            <li class="product-card">
+                <h3>
+                    <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+                </h3>
+                <p class="mb-1"><strong>Prix :</strong> {{ product.price }} MAD</p>
+                <p class="product-meta mb-2">
+                    {% if product.category %}
+                        Categorie :
+                        <a href="{% url 'category_detail' product.category.id %}">
+                            {{ product.category.name }}
+                        </a>
+                    {% else %}
+                        Aucune categorie
+                    {% endif %}
+                </p>
+
+                <div>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% endif %}
+                </div>
+
+                <div class="product-actions">
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-primary btn-sm">
+                        Voir le produit
+                    </a>
+                    {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' product.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success btn-sm">
+                                Commander
+                            </button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={% url 'product_detail' product.id %}" class="btn btn-warning btn-sm">
+                            Connecte-toi pour commander
+                        </a>
+                    {% endif %}
+                </div>
+            </li>
+        {% empty %}
+            <li class="product-card">Aucun produit disponible.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,13 +1,58 @@
-<html> 
-    <h1> Détails du produit : {{ product.name }} </h1>
-    <p><strong>Prix  : </strong> {{ product.price }} €</p>
-    <p><strong>Stock : </strong> {{ product.stock }}</p>
-    <p><strong>Description : </strong> {{ product.description }}</p>
-    <p><strong>Catégorie : </strong> <a href="{% url 'category_detail' product.category.id %}">{{ product.category.name }}</a></p>
-    {% if product.image %}
-         <img src="{{ product.image.url }}" width="250" alt="{{ product.name }}">
-    {% endif %}
-    <br>
-    <a href="{% url 'product_list' %}">Retour à la liste des produits</a>
-    
-</html>
+{% extends "products/layout.html" %}
+{% block title %}
+    Details du produit
+{% endblock %}
+{% block content %}
+<section class="product-detail">
+    <div class="row g-4 align-items-start">
+        <div class="col-md-5">
+            {% if product.image %}
+                <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+        </div>
+        <div class="col-md-7">
+            <h1>{{ product.name }}</h1>
+            <p class="product-meta mb-3">
+                {% if product.category %}
+                    Categorie :
+                    <a href="{% url 'category_detail' product.category.id %}">
+                        {{ product.category.name }}
+                    </a>
+                {% else %}
+                    Aucune categorie
+                {% endif %}
+            </p>
+            <p><strong>Prix :</strong> {{ product.price }} MAD</p>
+            <p><strong>Stock :</strong> {{ product.stock }}</p>
+            <p><strong>Description :</strong> {{ product.description }}</p>
+
+            <div class="product-actions">
+                {% if user.is_authenticated %}
+                    {% if product.stock > 0 %}
+                        <form method="post" action="{% url 'add_to_cart' product.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">
+                                Commander
+                            </button>
+                        </form>
+                    {% else %}
+                        <button type="button" class="btn btn-secondary" disabled>
+                            Produit indisponible
+                        </button>
+                    {% endif %}
+                    <a href="{% url 'cart' %}" class="btn btn-outline-primary">
+                        Voir mon panier
+                    </a>
+                {% else %}
+                    <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-warning">
+                        Connecte-toi pour commander
+                    </a>
+                {% endif %}
+                <a href="{% url 'product_list' %}" class="btn btn-outline-secondary">
+                    Retour aux achats
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

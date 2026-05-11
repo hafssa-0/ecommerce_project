@@ -1,12 +1,33 @@
-<h1>Catégories des produits</h1>
-<ul>
-    {% for category in categories %}
-        <li>
-            <h3><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></h3>
-            <p>{{ category.description }}</p>
-        </li>
-    {% empty %}
-        <li>Aucune catégorie disponible.</li>
-    {% endfor %}
-</ul>
-<a href="{% url 'product_list' %}">Retour à la liste des produits</a>
+{% extends "products/layout.html" %}
+
+{% block title %}Categories - AuraLand{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div>
+            <h1>Categories</h1>
+            <p class="product-meta mb-0">Parcourez les univers de produits AuraLand.</p>
+        </div>
+        <a href="{% url 'product_list' %}" class="btn btn-outline-primary">
+            Retour aux produits
+        </a>
+    </div>
+
+    <ul class="product-list">
+        {% for category in categories %}
+            <li class="product-card category-card">
+                <div>
+                    <h3>
+                        <a href="{% url 'category_detail' category.id %}">{{ category.name }}</a>
+                    </h3>
+                    <p class="product-meta mb-0">{{ category.description }}</p>
+                </div>
+                <a href="{% url 'category_detail' category.id %}" class="btn btn-primary btn-sm">
+                    Voir la categorie
+                </a>
+            </li>
+        {% empty %}
+            <li class="product-card">Aucune categorie disponible.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
