@@ -66,7 +66,7 @@ Détails du produit : Fiche technique affichant le prix, la description et le st
 5. capture de la page d’inscription
 <img width="1912" height="675" alt="image" src="https://github.com/user-attachments/assets/f8680e3d-0a2c-4cbd-9be3-a7a1526278ce" />
 
-6. capture de la page de connexion
+6. capture de la page de connexion 
 
 <img width="1897" height="568" alt="image" src="https://github.com/user-attachments/assets/c44fdd9d-1e0c-4d70-95c2-e9b625b8a6f4" />
 
